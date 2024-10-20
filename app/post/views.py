@@ -1,15 +1,11 @@
-from app import app, db
-from app.forms import PostForm
-from flask import render_template, flash
-import sqlalchemy as sa
-from app.models import Posts
+from flask import Blueprint, flash, render_template
+from app import db
+from app.post.forms import PostForm
+from app.post.models import Posts
 
-@app.route('/')
-def index():
-    posts = Posts.query.order_by(Posts.date_posted)
-    return render_template('index.html', title="Главная", posts=posts)
+post = Blueprint('post', __name__)
 
-@app.route('/add-post', methods=['GET', 'POST'])
+@post.route('/add-post', methods=['GET', 'POST'])
 def add_post():
     form = PostForm()
     if form.validate_on_submit():
@@ -24,4 +20,4 @@ def add_post():
         db.session.commit()
 
         flash('Заметка создана успешно')
-    return render_template('add_post.html', title="Записи", form=form)
+    return render_template('post/add_post.html', title="Записи", form=form)
