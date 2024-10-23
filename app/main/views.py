@@ -5,5 +5,5 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    posts = Posts.query.order_by(Posts.date_posted)
+    posts = Posts.query.order_by(Posts.created)
     return render_template('main/index.html', title="Главная", posts=posts)

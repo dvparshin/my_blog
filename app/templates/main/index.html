@@ -10,10 +10,10 @@
     {% endfor %}
 
 {% for post in posts %}
-    <h2>{{ post.title }}</h2>
+    <h2><a href="{{ url_for('post.post_detail', slug=post.slug) }}">{{ post.title }}</a></h2>
     <small>
     Автор <button type="button" href="#" class="btn btn-danger btn-sm">{{ post.author }}</button>
-    Дата создания <button type="button" href="#" class="btn btn-secondary btn-sm">{{ post.date_posted }}</button>
+    Дата создания <button type="button" href="#" class="btn btn-secondary btn-sm">{{ post.created }}</button>
     </small>
     <br><br><br>
     {{ post.content }}<br><br>
