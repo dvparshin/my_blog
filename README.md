@@ -7,7 +7,7 @@ git clone git@github.com:dvparshin/my_blog.git
 ```
 2) go to the directory
 ```
-cd blog_flask
+cd my_blog
 ```
 3) install python virtual env
 ```
@@ -28,4 +28,20 @@ http://127.0.0.1:5000/
 or
 ```
 http://localhost:5000/
+```
+# Running postgres db
+1) install docker-compose
+2) go to the docker directory
+```bash
+cd docker
+```
+3) deploy db and pgadmin
+```bash
+docker-compose up
+```
+
+# Create db
+1) go to the root of the repository
+```bash
+cd ..
 ```
