@@ -5,7 +5,6 @@ from wtforms.widgets import TextArea
 
 class PostForm(FlaskForm):
     title = StringField('Заголовок', validators=[DataRequired()])
-    content = StringField('Содержание', validators=[DataRequired()], widget=TextArea())
+    body = StringField('Содержание', validators=[DataRequired()], widget=TextArea())
     author = StringField('Автор', validators=[DataRequired()])
-    slug = StringField('Ссылка', validators=[DataRequired()])
     submit = SubmitField('Отправить')
