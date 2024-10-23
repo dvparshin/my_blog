@@ -1,0 +1,1 @@
+from app.post.views import post
